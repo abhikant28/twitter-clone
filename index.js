@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: "akdfjlkadf548451asdfasj",
     resave: false,
     saveUninitialized: false,
   })
@@ -25,8 +25,8 @@ initializePassport(passport);
 
 app.use("/auth", require("./routes/auth"));
 app.use("/tweet", require("./routes/tweet"));
-app.use("/", require("./routes"));
+app.use("/", require("./routes/index"));
 
-app.listen(process.env.PORT, () =>
-  console.log(`Server is running on port ${process.env.PORT}`)
+app.listen(8000, () =>
+  console.log(`Server is running on port 8000`)
 );
